@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="book">
+
+	<insert id="insert" parameterType="hashMap">
+		<selectKey order="BEFORE" 
+				   resultType="integer" 
+				   keyProperty="bookId">
+			SELECT NVL(MAX(BOOK_ID), 0) + 1 
+			  FROM book
+		</selectKey>
+	
+		INSERT INTO BOOK (
+			BOOK_ID,
+			TITLE,
+			CATEGORY,
+			PRICE,
+			INSERT_DATE
+		) VALUES (
+			${bookId},
+			#{title},
+			#{category},
+			#{price},
+			sysdate
+		)
+	</insert>
+	
+	<select id="select" parameterType="String">
+		SELECT TITLE,
+			   CATEGORY,
+			   PRICE,
+			   INSERT_DATE
+		  FROM BOOK
+		 WHERE BOOK_ID = ${bookId}
+	</select>
+
+</mapper>
