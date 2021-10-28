@@ -17,14 +17,12 @@
 			BOOK_ID,
 			TITLE,
 			CATEGORY,
-			PRICE,
-			INSERT_DATE
+			PRICE
 		) VALUES (
 			#{bookId},
 			#{title},
 			#{category},
-			#{price},
-			sysdate
+			#{price}
 		)
 	</insert>
 	
@@ -36,5 +34,24 @@
 		  FROM BOOK
 		 WHERE BOOK_ID = #{bookId}
 	</select>
+	
+	<update id="update" parameterType="hashMap">
+		UPDATE BOOK
+		   SET TITLE = #{title},
+		   	   CATEGORY = #{category},
+		   	   PRICE = #{price},
+		   	   INSERT_DATE = sysdate
+		 WHERE BOOK_ID = #{bookId}
+	</update>
+	
+	<select id="selectAll" resultType="hashMap">
+		SELECT *
+		 FROM BOOK
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM BOOK
+ 		 WHERE BOOK_ID = #{bookId}
+	</delete>
 
 </mapper>

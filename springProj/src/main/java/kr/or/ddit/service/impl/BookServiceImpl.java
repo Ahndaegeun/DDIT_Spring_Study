@@ -1,5 +1,6 @@
 package kr.or.ddit.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -22,5 +23,20 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Map<String, Object> select(Map<String, Object> map) {
 		return bookDao.select(map);
+	}
+	
+	@Override
+	public boolean update(Map<String, Object> map) {
+		return bookDao.update(map);
+	}
+	
+	@Override
+	public List<Map<String, Object>> selectAll() {
+		return bookDao.selectAll();
+	}
+	
+	@Override
+	public boolean delete(String bookId) {
+		return bookDao.delete(bookId);
 	}
 }

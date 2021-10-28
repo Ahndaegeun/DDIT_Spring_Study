@@ -5,7 +5,51 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-10-26T18:00:00Z</updated>
+  <updated>2021-10-27T19:00:00Z</updated>
+  <entry>
+    <title>Spring Tools 4.12.1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/10/27/spring-tools-4-12-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2021-10-27:4587</id>
+    <updated>2021-10-27T19:00:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am happy to announce the 4.12.1 release of the Spring Tools 4 for Eclipse, Visual Studio Code, and Theia.&lt;/p&gt;&lt;h4&gt;&lt;a href="#important-updates-to-the-spring-tools-4-for-eclipse-distribution" class="anchor" name="important-updates-to-the-spring-tools-4-for-eclipse-distribution"&gt;&lt;/a&gt;important updates to the Spring Tools 4 for Eclipse distribution&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;embedded runtime upgraded to JDK17 (across all distributions, including Apple Silicon)&lt;/li&gt;
+  &lt;li&gt;Java 17 support available (&lt;a href="https://marketplace.eclipse.org/content/java-17-support-eclipse-2021-09-421"&gt;via separate add-on&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-projects/sts4/wiki/Previous-Versions"&gt;early-access builds for upcoming Eclipse 2021-12 release available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-projects/sts4/wiki/Previous-Versions"&gt;early-access builds for Apple Silicon platform (ARM M1) available&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;h4&gt;&lt;a href="#additional-changes" class="anchor" name="additional-changes"&gt;&lt;/a&gt;additional changes&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: Alway Download sources and javadoc when I open sts (distribution includes latest m2e 1.18.2 release now) (&lt;a href="https://github.com/spring-projects/sts4/issues/692"&gt;#692&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: docker integration doesn&amp;rsquo;t work on Apple Silicon (&lt;a href="https://github.com/spring-projects/sts4/issues/684"&gt;#684&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: Annoying error message on every eclipse startup if CF destination is not reachable (&lt;a href="https://github.com/spring-projects/sts4/issues/688"&gt;#688&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To download the distribution for Eclipse and find links to the marketplace entries for Visual Studio Code and Theia, please go visit:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Tools 4: &lt;a href="https://spring.io/tools/"&gt;https://spring.io/tools/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Detailed changes can be found here: &lt;a href="https://github.com/spring-projects/sts4/wiki/Changelog#2021-10-27-4121-release-no-language-server-updates"&gt;https://github.com/spring-projects/sts4/wiki/Changelog#2021-10-27-4121-release-no-language-server-updates&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Spring Tools 4.13.0 is scheduled to be released in late December 2021.&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Tips: @Controllers (pt. 1): the "C" in Model 2 MVC</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/10/27/spring-tips-controllers-pt-1-the-c-in-model-2-mvc" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-10-27:4586</id>
+    <updated>2021-10-27T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, the first of a series, Josh Long looks at the venerable &lt;code&gt;@Controller&lt;/code&gt; annotation and its use supporting Model 2 MVC-style web applications.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/hUBrFekxn0Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - October 26th, 2021</title>
     <link rel="alternate" href="https://spring.io/blog/2021/10/26/this-week-in-spring-october-26th-2021" />
@@ -1016,35 +1060,6 @@ Let me know if you would like me to cover specific topics.&lt;/p&gt;
   &lt;li&gt;Spring Data Couchbase 4.1.14 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-couchbase/4.1.14"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/4.1.14/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/4.1.14/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://github.com/spring-projects/spring-data-couchbase/releases/tag/4.1.14"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Data for Apache Solr 4.3.14 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-solr/4.3.14"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/solr/docs/4.3.14/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/solr/docs/4.3.14/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://github.com/spring-projects/spring-data-solr/releases/tag/4.3.14"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: .NET legend LaylaCodesIT on Azure Spring Cloud, Steeltoe.NET, and more</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/10/14/a-bootiful-podcast-net-legend-laylacodesit-on-azure-spring-cloud-steeltoe-net-and-more" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-10-15:4568</id>
-    <updated>2021-10-14T23:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment &lt;a href="https://twitter.com/starbuxman"&gt; Josh Long (@starbuxman)&lt;/a&gt; talks to teammate, .NET ecosystem legend and awesome human being &lt;a href="https://twitch.tv/LaylaCodesIt"&gt;Layla (@LaylaCodesIt)&lt;/a&gt;.&lt;/p&gt;
-&lt;iframe title=".NET legend Layla Porter on Azure Spring Cloud, Steeltoe.NET, and more" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=ay8rt-1105429-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 5.3.11 and 5.2.18 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/10/14/spring-framework-5-3-11-and-5-2-18-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Stéphane Nicoll</name>
-    </author>
-    <id>tag:spring.io,2021-10-14:4567</id>
-    <updated>2021-10-14T12:16:00Z</updated>
-    <content type="html">&lt;p&gt;&lt;strong&gt;Update (2021-10-26):&lt;/strong&gt; These releases contain fixes for a security issue. Please, read the related &lt;a href="https://spring.io/blog/2021/10/26/security-reports-for-spring-framework-spring-data-rest-spring-amqp-and-spring-cloud-openfeign"&gt;announcement&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;5.3.11&lt;/code&gt; and &lt;code&gt;5.2.18&lt;/code&gt; are available now.&lt;/p&gt;
-&lt;p&gt;Spring Framework &lt;code&gt;5.3.11&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.11"&gt;32 fixes and improvements&lt;/a&gt;. Spring Framework &lt;code&gt;5.2.18&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.2.18.RELEASE"&gt;10 selected fixes and improvements&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Stay tuned for follow-up Spring Boot releases next week.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.3.11/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
