@@ -32,8 +32,8 @@ public class BookDao {
 		return result > 0;
 	}
 
-	public List<Map<String, Object>> selectAll() {
-		return this.sqlSessionTemplate.selectList("book.selectAll");
+	public List<Map<String, Object>> selectAll(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectList("book.selectAll", map);
 	}
 
 	public boolean delete(String bookId) {

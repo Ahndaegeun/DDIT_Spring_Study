@@ -28,5 +28,9 @@
 </c:forEach>
 </table>
 <a href="/create">등록</a>
+<form>
+	<input type="text" name="keyword" value="${keyword}">
+	<input type="submit" value="검색">
+</form>
 </body>
 </html>

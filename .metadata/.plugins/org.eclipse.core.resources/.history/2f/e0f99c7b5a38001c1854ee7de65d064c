@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="book">
+
+	<insert id="insert" parameterType="hashMap">
+		<selectKey order="BEFORE" 
+				   resultType="integer" 
+				   keyProperty="bookId">
+			SELECT NVL(MAX(BOOK_ID), 0) + 1 
+			  FROM book
+		</selectKey>
+	
+		INSERT INTO BOOK (
+			BOOK_ID,
+			TITLE,
+			CATEGORY,
+			PRICE
+		) VALUES (
+			#{bookId},
+			#{title},
+			#{category},
+			#{price}
+		)
+	</insert>
+	
+	<select id="select" parameterType="hashMap" resultType="hashMap">
+		SELECT TITLE,
+			   CATEGORY,
+			   PRICE,
+			   INSERT_DATE
+		  FROM BOOK
+		 WHERE BOOK_ID = #{bookId}
+	</select>
+	
+	<update id="update" parameterType="hashMap">
+		UPDATE BOOK
+		   SET TITLE = #{title},
+		   	   CATEGORY = #{category},
+		   	   PRICE = #{price},
+		   	   INSERT_DATE = sysdate
+		 WHERE BOOK_ID = #{bookId}
+	</update>
+	
+	<select id="selectAll" resultType="hashMap" parameterType="hashMap">
+		<![CDATA[
+		SELECT *
+		  FROM BOOK
+		 WHERE 1 = 1
+		 ]]>
+		 <if test="keyword!=null and keyword!=''">
+		   AND (TITLE LIKE '%'||#{keyword}||'%' OR CATEGORY LIKE '%'||${keyword}||'%'
+		 </if>
+		 ORDER BY INSERT_DATE DESC
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM BOOK
+ 		 WHERE BOOK_ID = #{bookId}
+	</delete>
+
+</mapper>

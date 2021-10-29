@@ -31,8 +31,8 @@ public class BookServiceImpl implements BookService {
 	}
 	
 	@Override
-	public List<Map<String, Object>> selectAll() {
-		return bookDao.selectAll();
+	public List<Map<String, Object>> selectAll(Map<String, Object> map) {
+		return bookDao.selectAll(map);
 	}
 	
 	@Override

@@ -44,9 +44,14 @@
 		 WHERE BOOK_ID = #{bookId}
 	</update>
 	
-	<select id="selectAll" resultType="hashMap">
+	<select id="selectAll" resultType="hashMap" parameterType="hashMap">
 		SELECT *
-		 FROM BOOK
+		  FROM BOOK
+		 WHERE 1 = 1
+		 <if test="keyword!=null and keyword!=''">
+		   AND (TITLE LIKE '%'||#{keyword}||'%' OR CATEGORY LIKE '%'||#{keyword}||'%')
+		 </if>
+		 ORDER BY INSERT_DATE DESC
 	</select>
 	
 	<delete id="delete" parameterType="String">

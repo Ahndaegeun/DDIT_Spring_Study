@@ -8,6 +8,10 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="jackson"/>
+			<item value="jack"/>
+			<item value="json"/>
+			<item value="jstl"/>
 			<item value="mybatis"/>
 			<item value="tom"/>
 		</list>

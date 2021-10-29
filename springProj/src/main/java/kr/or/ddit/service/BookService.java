@@ -11,7 +11,7 @@ public interface BookService {
 	
 	boolean update(Map<String, Object> map);
 
-	List<Map<String, Object>> selectAll();
+	List<Map<String, Object>> selectAll(Map<String, Object> map);
 
 	boolean delete(String bookId);
 }
