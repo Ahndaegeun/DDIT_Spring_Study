@@ -6,11 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.service.impl.BoardServiceImpl;
+import kr.or.ddit.vo.MemberVO;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("/board")
+@RequiredArgsConstructor
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	private final BoardServiceImpl boardServiceImpl;
 
 	
 	@RequestMapping("/register")
@@ -77,6 +84,34 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@RequestMapping("/registerCheckbox")
+	public String registerCheckbox02() {
+		return "sub/registerCheckbox02";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/registerCheckbox", method = RequestMethod.POST)
+	public MemberVO register(MemberVO vo) {
+		logger.info("registerCheckbox");
+		logger.info(vo.toString());
+		
+		//boardServiceImpl.insertMemberHobby(vo);
+		
+		return vo;
+	}
+	
+	@RequestMapping(value = "/registerCheckbox05Post")
+	public String registerCheckbox05() {
+		logger.info("registerCheckbox05");
+		return "sub/registerCheckbox05";
+	}
+	
+	@RequestMapping(value = "/registerCheckbox05Post", method = RequestMethod.POST)
+	public String registerCheckbox05Post(boolean foreinger) {
+		logger.info("foreinger = " + foreinger);
+		
+		return "success";
+	}
 }
 
 

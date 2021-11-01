@@ -8,6 +8,11 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="imgs"/>
+			<item value="commons-file"/>
+			<item value="commons"/>
+			<item value="comm"/>
+			<item value="com"/>
 			<item value="jackson"/>
 			<item value="jack"/>
 			<item value="json"/>
@@ -19,8 +24,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="814"/>
-		<item key="DIALOG_Y_ORIGIN" value="259"/>
+		<item key="DIALOG_X_ORIGIN" value="1203"/>
+		<item key="DIALOG_Y_ORIGIN" value="268"/>
 		<item key="DIALOG_WIDTH" value="292"/>
 		<item key="DIALOG_HEIGHT" value="402"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
