@@ -2,13 +2,20 @@ package kr.or.ddit.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.ddit.service.impl.BoardServiceImpl;
+import kr.or.ddit.vo.BoardVO;
 import kr.or.ddit.vo.MemberVO;
 import lombok.RequiredArgsConstructor;
 
@@ -111,6 +118,19 @@ public class BoardController {
 		logger.info("foreinger = " + foreinger);
 		
 		return "success";
+	}
+	
+	@PostMapping("/{boardNo}")
+	public ResponseEntity<String> test1(@PathVariable int boardNo,
+					  @RequestBody BoardVO boardVO) {
+		logger.info("boardVo : " + boardVO.toString());
+		
+		return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
+	}
+	
+	@GetMapping("/")
+	public String testView() {
+		return "ajaxHome";
 	}
 }
 

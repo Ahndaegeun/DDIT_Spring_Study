@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -16,9 +18,9 @@
 	<div class="row">
 		<table width="100%;">
 			<tr>
-				<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>"
+				<td align="left"><a href="/product/deleteAllCart"
 				  class="btn btn-danger">삭제하기</a></td>
-				<td align="right"><a href="./shippingInfo.jsp?cartId=<%=cartId%>"
+				<td align="right"><a href="/product/shipping"
 				  class="btn btn-success">주문하기</a></td>
 			</tr>
 		</table>
@@ -32,35 +34,20 @@
 				<th>소계</th>
 				<th>비고</th>
 			</tr>
-			<%
-			int sum = 0;
-			//장바구니인 cartlist에 등록된 모든 상품을 가져옴.
-			ArrayList<Product> cartList 
-			= (ArrayList<Product>)session.getAttribute("cartlist");
-			//cartlist에 저장된 상품 목록이 없으면 장바구니 cartlist를 생성
-			if(cartList==null){
-				cartList = new ArrayList<Product>();
-			}
-			//cartlist에 등록된 모든 상품을 하나씩 가져외 출력
-			for(int i=0;i<cartList.size();i++){
-				Product product = cartList.get(i);
-				//금액 = 상품의 가격 * 수량
-				int total = product.getUnitPrice() * product.getQuantity();
-				sum = sum + total;
-			%>
+			<c:set var="sum" value="0" />
+			<c:forEach items="${sessionScope.itemList}" var="item">
 			<tr>
-				<td><%=product.getProductId()%> - <%=product.getPname()%></td>
-				<td><%=product.getUnitPrice()%></td>
-				<td><%=product.getQuantity()%></td>
-				<td><%=total%></td>
-				<td><a href="./removeCart.jsp?id=<%=product.getProductId()%>" 
+				<td>${item.P_ID} - ${item.P_NAME}</td>
+				<td>${item.P_UNITPRICE}</td>
+				<td>${item.quantity}</td>
+				<td>${item.P_UNITPRICE * item.quantity}</td>
+				<td><a href="./removeCart?id=${item.P_ID}" 
 						class="badge badge-danger">삭제</a></td>
 			</tr>
-			<%
-			}//end for
-			%>
+			<c:set var="sum" value="${sum + item.P_UNITPRICE * item.quantity}"/>
+			</c:forEach>
 			<tr>
-				<th></th><th></th><th>총액</th><th><%=sum%></th><th></th>
+				<th></th><th></th><th>총액</th><th>${sum}</th><th></th>
 			</tr>
 		</table>
 		<a href="./products.jsp" class="btn btn-secondary">&laquo; 쇼핑 계속하기</a>

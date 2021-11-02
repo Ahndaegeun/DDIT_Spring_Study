@@ -65,4 +65,11 @@ public class UploadController {
 		model.addAttribute("fileNames", list);
 		return "uploadFormPost";
 	}
+	
+	public void uploadAjax(MultipartFile[] multipartFile) {
+		
+		for(MultipartFile f : multipartFile) {
+			logger.info("fileName : " + f.getOriginalFilename());
+		}
+	}
 }

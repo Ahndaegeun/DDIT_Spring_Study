@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -128,8 +129,10 @@ public class ProductController {
 	@PostMapping("/addCart")
 	public String addCart(String id, Model model,
 				HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
 		Map<String, Object> item = null;
+		
 		try {
 			item = productService.findOne(id);
 			List<Map<String, Object>> list = 
@@ -139,7 +142,6 @@ public class ProductController {
 				list = new ArrayList<>();
 				item.put("quantity", 1);
 				list.add(item);
-				session.setAttribute("itemList", list);
 			} else {
 				for(Map<String, Object> i : list) {
 					String pId = i.get("P_ID") + "";
@@ -150,11 +152,11 @@ public class ProductController {
 					} else if(list.indexOf(i) == list.size() - 1) {
 						item.put("quantity", 1);
 						list.add(item);
-						session.setAttribute("itemList", list);
 					}
 				}
 			}
-			
+			session.setAttribute("itemList", list);
+			logger.info(list.size() + "");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -168,7 +170,37 @@ public class ProductController {
 	
 	@GetMapping("/showCart")
 	public String showCart() {
+		return "cart";
+	}
+	
+	@GetMapping("/removeCart")
+	public String removeCartItem(String id,
+						HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		List<Map<String, Object>> list = 
+				(List<Map<String, Object>>)session.getAttribute("itemList");
 		
-		return "";
+		if(list != null) {
+			for(Map<String, Object> item : list) {
+				if(item.get("P_ID").equals(id)) {
+					list.remove(item);
+					break;
+				}
+			}
+		}
+		request.setAttribute("itemList", list);
+		return "redirect:/product/showCart";
+	}
+	
+	@GetMapping("/deleteAllCart")
+	public String deleteAllCart(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/product/showCart";
+	}
+	
+	@GetMapping("/shipping")
+	public String shipping() {
+		return "shippingInfo";
 	}
 }

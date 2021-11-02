@@ -41,8 +41,8 @@
 				<p>
 					<form name="addForm" action="/product/addCart?id=${item.P_ID}" method="post">
 						<a href="#" class="btn btn-info" onclick="addToCart()">상품 주문 &raquo;</a>
-						<a href="/showCart" class="btn btn-warning">장바구니 &raquo;</a>
-						<a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a>
+						<a href="/product/showCart" class="btn btn-warning">장바구니 &raquo;</a>
+						<a href="/product/list" class="btn btn-secondary">상품 목록 &raquo;</a>
 					</form>
 				</p>
 			</div>
