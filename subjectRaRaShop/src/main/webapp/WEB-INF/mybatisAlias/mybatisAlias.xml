@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 
+	[mybatis] 스프링에서 "_"를 사용한 컬럼명 사용할 때 mapUnderscoreToCamelCase를 통해
+	테이블 컬럼명에 "_"가 있을경우 카멜케이스로 읽어줌
+	ex) member_id => memberId
+	 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="kr.or.ddit.vo.Product" alias="productVO"/>
+	</typeAliases>
+</configuration>

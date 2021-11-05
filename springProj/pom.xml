@@ -194,6 +194,16 @@
 		    <version>0.4.8</version>
 		</dependency>
 		
+		<!-- compiler -->
+		<dependency>
+		    <groupId>net.openhft</groupId>
+		    <artifactId>compiler</artifactId>
+		    <version>2.4.1</version>
+		</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.sun/tools -->
+
+		
 	</dependencies>
     <build>
         <plugins>

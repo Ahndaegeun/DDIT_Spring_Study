@@ -4,13 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="product">
+
+	<resultMap type="hashMap" id="descriptionToString">
+	<!-- 
+	type = 
+	id = 현재 xml에서 사용될 id값 / selec문 resultMap에 들어감
+	 -->
+		<result property="description" column="pDescription" jdbcType="CLOB" javaType="java.lang.String"/>
+		<!-- 
+		property = java에서 사용할 변수명
+		column = 실제 DB컬럼 명
+		jdbcType = db컬럼 타입
+		javaType = java에서 변환될 타입
+		 -->
+	</resultMap>
 	
 	<select id="findAll" resultType="hashMap">
 		SELECT *
 		  FROM PRODUCT
 	</select>
 	
-	<select id="findOne" resultType="hashMap" parameterType="String">
+	<select id="findOne" resultType="hashMap" parameterType="String" resultMap="descriptionToString">
 		SELECT *
 		  FROM PRODUCT
 		 WHERE P_ID = #{id}
